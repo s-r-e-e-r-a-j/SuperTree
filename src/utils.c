@@ -25,7 +25,10 @@ long get_total_size(const char *path) {
     struct stat st;
     long total = 0;
 
-    if (lstat(path, &st) == 0)
+    if (lstat(path, &st) != 0)
+        return 0;
+
+    if (!S_ISDIR(st.st_mode))
         total += st.st_size;
 
     if (S_ISDIR(st.st_mode)) {
@@ -34,12 +37,15 @@ long get_total_size(const char *path) {
 
         struct dirent *entry;
         char full[4096];
+
         while ((entry = readdir(dir)) != NULL) {
             if (strcmp(entry->d_name, ".") == 0 || strcmp(entry->d_name, "..") == 0)
                 continue;
+
             snprintf(full, sizeof(full), "%s/%s", path, entry->d_name);
             total += get_total_size(full);
         }
+
         closedir(dir);
     }
 
