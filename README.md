@@ -59,7 +59,8 @@ cd SuperTree
 ```bash
 make
 ```
-### Installation Paths
+4. **Install on your system**
+
 **For Linux:**
 
 Move the binary to `/usr/local/bin`:
