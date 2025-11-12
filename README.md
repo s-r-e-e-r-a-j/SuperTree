@@ -42,6 +42,10 @@ pkg install clang make -y
 ```
 These packages ensure that **gcc** or **clang** and **make** are available for compiling and building **SuperTree**.
 
+## Compatibility
+- Linux (Debian, RHEL, Arch)
+- Termux (Android)
+
 ## Installation
 1. **Clone the repository**
 ```bash
