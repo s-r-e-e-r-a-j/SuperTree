@@ -24,7 +24,7 @@ void color_print(const char *path, const char *name, const char *size_str) {
         printf("%s%s%s", COLOR_DIR, name, COLOR_RESET);
     else if (S_ISLNK(s.st_mode))
         printf("%s%s%s", COLOR_LINK, name, COLOR_RESET);
-    else if (s.st_mode & S_IXUSR)
+    else if (s.st_mode & (S_IXUSR | S_IXGRP | S_IXOTH))
         printf("%s%s%s", COLOR_EXE, name, COLOR_RESET);
     else
         printf("%s%s%s", COLOR_FILE, name, COLOR_RESET);
