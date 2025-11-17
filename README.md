@@ -144,5 +144,9 @@ supertree --json /home/user/Documents
 supertree -L 2 /etc
 ```
 
+## Uninstallation
+```bash
+sudo rm -f /usr/local/bin/supertree
+```
 ## License
 This project is licensed under the MIT License
